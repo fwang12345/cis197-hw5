@@ -33,8 +33,8 @@ app.use(
   })
 )
 
-app.get('/', function(req, res, next) {
-  Question.find({}, function(err, result) {
+app.get('/', function (req, res, next) {
+  Question.find({}, function (err, result) {
     if (err) {
       return next(err)
     }
@@ -52,10 +52,10 @@ app.get('/', function(req, res, next) {
 //       b) add a new question to the db
 //       c) redirect the user back to the home page when done
 
-app.post('/', function(req, res, next) {
+app.post('/', function (req, res, next) {
   var questionText = req.body.question
   var q = new Question({ questionText: questionText })
-  q.save(function(err) {
+  q.save(function (err) {
     if (!err) {
       res.redirect('/')
     } else {
@@ -81,17 +81,17 @@ app.use('/api', apiRouter)
  * Some browsers request the favicon (the little icon that shows up in the tab)
  * with every request, we just want to throw a 404 instead of any generic error
  */
-app.get('/favicon.ico', function(_, res) {
+app.get('/favicon.ico', function (_, res) {
   return res.status(404).send()
 })
 
 // Catch all for all other get requests
-app.get('*', function(_, res) {
+app.get('*', function (_, res) {
   return res.status(404).send()
 })
 
 // Middleware for catching any errors
-app.use(function(err, _, res, _) {
+app.use(function (err, _, res, _) {
   if (err) {
     return res.send('ERROR :  ' + err.message)
   }
@@ -101,6 +101,6 @@ app.use(function(err, _, res, _) {
  * Now that the app is configured, start running the app. Print out to the
  * terminal/console where we can find the app.
  */
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT || 3000, function () {
   console.log('App listening on port ' + (process.env.PORT || 3000))
 })
