@@ -28,7 +28,7 @@ router.post('/questions/add', function(req, res, next) {
 })
 
 router.post('/questions/answer', function(req, res, next) {
-    Question.updateOne({ id: req.body.questionId }, 
+    Question.updateOne({ _id: req.body.questionId }, 
         { answer: req.body.answer }, function(err) {
         if (err) {
             next(err)

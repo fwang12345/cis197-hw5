@@ -70,7 +70,7 @@ $(document).ready(function() {
     //      _id.
     $.ajax({
       url: '/api/questions/answer',
-      data: { answer: answer, questionId: data[activeIdx] },
+      data: { answer: answer, questionId: data[activeIdx]._id },
       type: 'POST',
       success: function(res) {
         console.log(res)
