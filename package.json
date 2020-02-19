@@ -1,0 +1,24 @@
+{
+  "name": "campuswire-lite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint routes models server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-session": "^2.0.0-beta.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.1.0",
+    "mockgoose": "^7.3.5",
+    "mongoose": "^5.4.17",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {
+    "handlebars": "^4.5.0"
+  }
+}

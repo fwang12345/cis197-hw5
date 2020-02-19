@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>CIS 197 Campuswire Lite</title>
+    <script src="/static/scripts/lib/jquery.min.js"></script>
+    <script src="/static/scripts/main.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/static/styles/styles.css"/>
+  </head>
+  <body>
+    <div class="nav">
+      <h2> Campuswire Lite </h2>
+      {{!-- STUB --}}
+      {{#if user}}
+        <p> Hi {{ user }}
+          <a href="/account/logout">Log out</a>
+        </p>
+      {{/if}}
+      {{!-- ENDSTUB --}}
+    </div>
+
+    <div class="main-body">
+      <div class="left-col">
+        {{#if user}}
+          <a href="#" class="btn" id="new-question">Add new Question + </a>
+          <div class="modal" style="display:none">
+            <div class="question-area">
+              <label>Add Question:</label>
+              <textarea type="text" id="question-text"></textarea>
+              <a class="btn" type="submit" id="submit-question">Submit Question</a>
+              <a id="close">Close</a>
+            </div>
+          </div>
+        {{else}}
+          <a class="btn" href="/account/login">Log in to submit a question</a>
+        {{/if}}
+        <ul id="questions">
+          {{#each questions}}
+            <li>{{this.questionText}}</li>
+          {{/each}}
+        </ul>
+      </div>
+
+      <div class="right-col">
+        <div id="show-question" style="display:none">
+          <div id="question-info">
+            <p id="question"></p>
+            <strong>Author:</strong>
+            <p id="author"></p>
+            <strong>Answer:</strong>
+            <p id="answer-text"></p>
+          </div>
+          <br/><br/>
+          {{#if user}}
+          <label>Answer this question:</label>
+          <textarea id="answer"></textarea>
+          <a class="btn" type="submit" id="submitAnswer">Submit Answer</a>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
